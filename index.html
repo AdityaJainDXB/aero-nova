@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111d">
+  <meta name="description" content="AERØ/NOVA — planetary air traffic and mission control simulation.">
+  <title>AERØ/NOVA — Planetary Mission Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="AERØ NOVA home">
+        <span class="brand-mark">A<span>Ø</span></span>
+        <span class="brand-copy">AERØ<span>/</span>NOVA<small>PLANETARY CONTROL</small></span>
+      </a>
+      <div class="side-label">OPERATIONS</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span>◫</span> Overview <kbd>01</kbd></button>
+        <button class="nav-item" data-view="traffic"><span>⌁</span> Flight traffic <kbd>02</kbd></button>
+        <button class="nav-item" data-view="missions"><span>◎</span> Missions <kbd>03</kbd></button>
+        <button class="nav-item" data-view="spaceports"><span>⌂</span> Spaceports <kbd>04</kbd></button>
+      </nav>
+      <div class="side-spacer"></div>
+      <div class="planet-card">
+        <div class="planet-orb"></div>
+        <div><small>CONTROLLED WORLD</small><strong id="sidebarPlanet">NOVA-9</strong><span>Sector 07 · Outer Rim</span></div>
+      </div>
+      <div class="sidebar-foot"><span class="live-dot"></span> UPLINK ESTABLISHED <span>v1.0.0</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="breadcrumb">SOL SYSTEM <span>/</span> DEEP SPACE <span>/</span> <b>MISSION CONTROL</b></div>
+        <div class="top-actions">
+          <div class="utc-clock"><span class="live-dot"></span><span id="clock">00:00:00 UTC</span></div>
+          <button class="icon-btn" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">♫</button>
+          <div class="operator"><div class="operator-avatar">AJ</div><div><b>FLIGHT DIRECTOR</b><small>ADITYA · LEVEL 04</small></div></div>
+        </div>
+      </header>
+
+      <section class="page-heading">
+        <div><div class="eyebrow"><span class="live-dot"></span> LIVE OPERATIONS <span class="slash">/</span> COMMAND DECK</div>
+          <h1>Mission <em>Control.</em></h1>
+          <p>Monitoring orbital traffic, planetary weather and deep-space operations.</p>
+        </div>
+        <div class="heading-right"><div class="date-label" id="dateLabel">MONDAY · 23 NOV 2026</div><button class="primary-btn" id="newFlightBtn">＋ &nbsp; REGISTER FLIGHT</button></div>
+      </section>
+
+      <section class="stat-grid" aria-label="Operations statistics">
+        <article class="stat-card"><div class="stat-top"><span>ACTIVE FLIGHTS</span><span class="stat-icon cyan">⌁</span></div><div class="stat-value" id="activeCount">08</div><div class="stat-bottom"><span class="up">↗ 12%</span> vs previous cycle</div><div class="stat-line"><i style="width:72%"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>SPACEPORTS ONLINE</span><span class="stat-icon blue">⌂</span></div><div class="stat-value">06<span class="unit">/ 09</span></div><div class="stat-bottom"><span class="up">● 6 operational</span></div><div class="stat-line"><i style="width:66%"></i></div></article>
+        <article class="stat-card"><div class="stat-top"><span>MISSIONS COMPLETED</span><span class="stat-icon gold">◎</span></div><div class="stat-value" id="completedCount">142</div><div class="stat-bottom"><span class="up">↗ 8.4%</span> this planetary day</div><div class="stat-line"><i style="width:84%"></i></div></article>
+        <article class="stat-card alert-stat"><div class="stat-top"><span>ACTIVE ALERTS</span><span class="stat-icon red">!</span></div><div class="stat-value" id="alertCount">02</div><div class="stat-bottom"><span class="warning-text">● Requires attention</span></div><div class="stat-line"><i style="width:28%"></i></div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel radar-panel" id="radarPanel">
+          <div class="panel-head"><div><div class="panel-kicker">01 / AIRSPACE VISUALISATION</div><h2>Orbital radar <span class="live-pill">LIVE</span></h2></div><div class="panel-tools"><button class="small-btn active" data-layer="all">ALL</button><button class="small-btn" data-layer="civilian">CIV</button><button class="small-btn" data-layer="cargo">CGO</button><button class="small-btn" data-layer="exploration">EXP</button></div></div>
+          <div class="radar-wrap">
+            <canvas id="radar" aria-label="Animated orbital radar showing spacecraft around NOVA-9"></canvas>
+            <div class="radar-label label-n">N  ·  POLAR APPROACH</div><div class="radar-label label-e">E  ·  ZENITH</div><div class="radar-label label-s">S  ·  EQUATORIAL</div><div class="radar-label label-w">W  ·  OLYMPUS</div>
+            <div class="radar-center"><span>NOVA-9</span><small>PLANETARY CORE</small></div>
+            <div class="radar-coords">SECTOR 07.42 / GRID 118.09<br>RANGE 2,400 KM</div>
+          </div>
+          <div class="radar-footer"><span><i class="legend-dot cyan-dot"></i> CIVILIAN <b id="civilianCount">04</b></span><span><i class="legend-dot gold-dot"></i> CARGO <b id="cargoCount">02</b></span><span><i class="legend-dot purple-dot"></i> EXPLORATION <b id="explorationCount">02</b></span><span class="radar-refresh">RADAR SWEEP <b>2.4 SEC</b></span></div>
+        </article>
+
+        <article class="panel weather-panel">
+          <div class="panel-head"><div><div class="panel-kicker">02 / PLANETARY CONDITIONS</div><h2>Atmospheric report</h2></div><span class="weather-icon">◒</span></div>
+          <div class="weather-main"><div><div class="weather-temp">−42<span>°</span></div><div class="weather-condition">CRYO-DUST FRONT</div></div><div class="weather-planet"><div class="planet-large"></div><span>HEMISPHERE 03</span></div></div>
+          <div class="weather-alert"><span>▲</span><div><b>VISIBILITY REDUCED</b><small>Olympus corridor · 18 min remaining</small></div></div>
+          <div class="weather-details"><div><small>WIND VELOCITY</small><b>84 <i>KM/H</i></b></div><div><small>ATMOS. PRESSURE</small><b>0.74 <i>ATM</i></b></div><div><small>ION STORM</small><b class="warning-text">MODERATE</b></div></div>
+        </article>
+      </section>
+
+      <section class="bottom-grid">
+        <article class="panel flights-panel">
+          <div class="panel-head"><div><div class="panel-kicker">03 / TRAFFIC MANAGEMENT</div><h2>Active flight manifest <span class="count-chip" id="manifestCount">08</span></h2></div><div class="table-actions"><input id="flightSearch" type="search" placeholder="Search callsign…" aria-label="Search flights"><select id="statusFilter" aria-label="Filter flight status"><option value="all">All statuses</option><option value="On course">On course</option><option value="Approaching">Approaching</option><option value="Delayed">Delayed</option><option value="Emergency">Emergency</option></select></div></div>
+          <div class="table-scroll"><table><thead><tr><th>CALLSIGN</th><th>DESTINATION</th><th>TYPE</th><th>ALTITUDE</th><th>VELOCITY</th><th>STATUS</th><th></th></tr></thead><tbody id="flightRows"></tbody></table></div>
+          <div class="table-foot"><span>SHOWING <b id="showingCount">08</b> OF <b id="totalCount">08</b> TRANSMISSIONS</span><button class="text-btn" data-view="traffic">VIEW ALL TRAFFIC ↗</button></div>
+        </article>
+        <article class="panel alerts-panel">
+          <div class="panel-head"><div><div class="panel-kicker">04 / INCIDENT RESPONSE</div><h2>Priority alerts <span class="alert-count" id="priorityCount">02</span></h2></div><button class="text-btn" id="clearAlerts">CLEAR ACK'D</button></div>
+          <div id="alertList" class="alert-list"></div>
+          <button class="report-btn" id="reportAlert">＋ &nbsp; REPORT AN INCIDENT</button>
+        </article>
+      </section>
+      <footer class="footer"><span> AERØ/NOVA <b>·</b> PLANETARY AIRSPACE NETWORK</span><span>SIMULATION ENVIRONMENT <i></i> ALL SYSTEMS NOMINAL</span><span>BUILT FOR THE NEXT FRONTIER</span></footer>
+    </main>
+  </div>
+
+  <dialog id="flightDialog" class="modal">
+    <form method="dialog" id="flightForm">
+      <div class="modal-head"><div><div class="panel-kicker">TRAFFIC MANAGEMENT</div><h2>Register a flight</h2></div><button class="close-btn" value="cancel" aria-label="Close">×</button></div>
+      <label>Callsign<input name="callsign" required maxlength="12" placeholder="e.g. NOVA 777"></label>
+      <label>Destination<select name="destination"><option>Olympus Port</option><option>Zenith City</option><option>Lunar Gate</option><option>Titan Base</option><option>Kepler Station</option><option>New Eden</option></select></label>
+      <div class="form-row"><label>Flight type<select name="type"><option value="Civilian">Civilian</option><option value="Cargo">Cargo</option><option value="Exploration">Exploration</option></select></label><label>Altitude (KM)<input name="altitude" type="number" min="100" max="50000" value="12000" required></label></div>
+      <button class="primary-btn full-btn" type="submit">ADD TO MANIFEST →</button>
+    </form>
+  </dialog>
+
+  <dialog id="alertDialog" class="modal">
+    <form method="dialog" id="alertForm">
+      <div class="modal-head"><div><div class="panel-kicker">INCIDENT RESPONSE</div><h2>Report an incident</h2></div><button class="close-btn" value="cancel" aria-label="Close">×</button></div>
+      <label>Incident title<input name="title" required placeholder="e.g. Debris field detected"></label>
+      <label>Location<input name="location" required placeholder="e.g. Olympus corridor"></label>
+      <label>Severity<select name="severity"><option value="critical">Critical</option><option value="warning">Warning</option><option value="info">Information</option></select></label>
+      <button class="primary-btn full-btn" type="submit">TRANSMIT ALERT →</button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="customize.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
