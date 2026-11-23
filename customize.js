@@ -1,17 +1,11 @@
-/*
- * YOUR THREE VIBES WORKSHOP CUSTOMISATIONS
- * Make these edits yourself. Save the file and refresh the website.
- * 1) Rename your planet and change its atmosphere accent.
- * 2) Add your own spacecraft to STARTER_FLIGHTS.
- * 3) Create a new incident in STARTER_ALERTS.
- */
+
 
 const PLANET_CONFIG = {
   // CHANGE 1: Try a name such as "KEPLER-186F" or invent your own world.
-  name: "NOVA-9",
-  sector: "Sector 07 · Outer Rim",
+  name: "AURELIA-8",
+  sector: "Sector 17 · Aurora Expanse",
   // Change this to a CSS colour, e.g. "#a78bfa" (violet).
-  accent: "#67d9e8"
+  accent: "#a78bfa"
 };
 
 // CHANGE 2: Add a new object to this array. Keep the commas and quotation marks.
