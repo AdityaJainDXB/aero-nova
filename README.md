@@ -27,16 +27,6 @@ python3 -m http.server 8000
 
 Then visit <http://localhost:8000>.
 
-## The three personal Vibes edits
-
-Open `customize.js`. The three tasks are marked in the file:
-
-1. **Planet identity:** change `PLANET_CONFIG.name`, `sector` and `accent`.
-2. **Your spacecraft:** add another object to `STARTER_FLIGHTS`, giving it a callsign, destination, type, altitude, velocity, status, angle and radius.
-3. **Your incident:** add another object to `STARTER_ALERTS` with a unique `id`, title, location, severity, time and `acknowledged: false`.
-
-Save the file and refresh the browser to see your edits.
-
 ## Project structure
 
 ```text
