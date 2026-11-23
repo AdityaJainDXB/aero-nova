@@ -17,7 +17,17 @@ const STARTER_FLIGHTS = [
   { callsign: "PULSE 019", destination: "New Eden", type: "Civilian", altitude: 15600, velocity: 910, status: "Approaching", angle: 218, radius: 0.76 },
   { callsign: "CARGO 77", destination: "Kepler Station", type: "Cargo", altitude: 20100, velocity: 540, status: "On course", angle: 260, radius: 0.48 },
   { callsign: "HELIOS 6", destination: "Olympus Port", type: "Exploration", altitude: 28900, velocity: 1340, status: "On course", angle: 304, radius: 0.88 },
-  { callsign: "NOVA 220", destination: "Zenith City", type: "Civilian", altitude: 11200, velocity: 790, status: "Approaching", angle: 342, radius: 0.58 }
+  { callsign: "NOVA 220", destination: "Zenith City", type: "Civilian", altitude: 11200, velocity: 790, status: "Approaching", angle: 342, radius: 0.58 },
+  {
+  callsign: "AURELIA 777",
+  destination: "Kepler Station",
+  type: "Exploration",
+  altitude: 32000,
+  velocity: 1280,
+  status: "On course",
+  angle: 306,
+  radius: 0.55
+}
 ];
 
 // CHANGE 3: Add a new alert object to this array.
