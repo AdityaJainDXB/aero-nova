@@ -91,6 +91,77 @@
         </article>
       </section>
       <footer class="footer"><span> AERØ/NOVA <b>·</b> PLANETARY AIRSPACE NETWORK</span><span>SIMULATION ENVIRONMENT <i></i> ALL SYSTEMS NOMINAL</span><span>BUILT FOR THE NEXT FRONTIER</span></footer>
+ <section class="mission-planner" id="mission-planner">
+
+  <div class="planner-heading">
+    <div>
+      <p class="eyebrow">FLIGHT OPERATIONS / MODULE 04</p>
+      <h2>Advanced Mission Planner</h2>
+      <p>Plan, calculate and authorise interplanetary missions.</p>
+    </div>
+    <span class="planner-status">MISSION SYSTEM ONLINE</span>
+  </div>
+<div class="planner-grid">
+  <div class="planner-panel">
+  <h3>01 / Spacecraft Configuration</h3>
+
+  <label for="ship-name">sSpacecraft Callsign</label>
+  <input id="ship-name" value="AURELIA 777">
+
+      <label for="ship-speed">Cruising speed (km/h)</label>
+      <input id="ship-speed" type="number"
+        value="1180" min="1">
+
+      <label for="ship-fuel">Available fuel (units)</label>
+      <input id="ship-fuel" type="number"
+        value="100" min="0">
+  <h3> 02 / Mission Destinations</h3>
+  <label for="destination-select">Select Destination</label>
+
+<select id="destination-select">
+  <option value="kepler">Kepler Station</option>
+        <option value="titan">Titan Research Base</option>
+        <option value="mars">Mars Colony</option>
+        <option value="europa">Europa Outpost</option>
+        <option value="zenith">Zenith City</option>
+      </select>
+  <button if="add-destination" type="button">
+    + Add Waypoint
+  </button>
+  <div id="route-list"></div>
+
+      <button id="calculate-mission" type="button">
+        CALCULATE MISSION
+      </button>
+    </div>
+<div class="planner-panel">
+  <h3>03 / Mission Analysis</h3>
+
+  <div id="mission-results" aria-live="polite">
+        <p>Awaiting mission parameters...</p>
+      </div>
+
+      <div id="mission-verdict">
+        SYSTEM READY — AWAITING CALCULATION
+      </div>
+
+  <h3> 04 / Mission Database</h3>
+  <label for="saved missions">Saved Missions</label>
+  <select id= "saved-missions">
+    <option value="">Select a Saved Mission</option>
+  </select>
+
+  <button if="save-mission" type="button">
+    SAVE MISSION
+  </button>
+
+  <button id="load-mission" type="button">
+    LOAD MISSION
+  </button>
+
+</div>
+   </div>
+ </section>
     </main>
   </div>
 
