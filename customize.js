@@ -33,5 +33,13 @@ const STARTER_FLIGHTS = [
 // CHANGE 3: Add a new alert object to this array.
 const STARTER_ALERTS = [
   { id: 1, title: "Cryo-dust front detected", location: "Olympus corridor · Sector 03", severity: "warning", time: "2 MIN AGO", acknowledged: false },
-  { id: 2, title: "Unscheduled signal received", location: "Deep-space relay · Grid 118", severity: "critical", time: "6 MIN AGO", acknowledged: false }
+  { id: 2, title: "Unscheduled signal received", location: "Deep-space relay · Grid 118", severity: "critical", time: "6 MIN AGO", acknowledged: false },
+  {
+  id: 3,
+  title: "Massive Aurora Storm Detected",
+  location: "Northern Hemisphere · Sector 12",
+  severity: "warning",
+  time: "JUST NOW",
+  acknowledged: false
+}
 ];
